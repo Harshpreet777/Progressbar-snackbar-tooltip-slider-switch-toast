@@ -13,24 +13,33 @@ class _SwitchScreenState extends State<SwitchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Text(
-              'Switch',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
-            ),
-            Switch(
-              value: switchValue,
-              activeColor: Colors.blue,
-              onChanged: (value) {
-                setState(() {
-                  switchValue = value;
-                });
-              },
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text(
+                'Switch',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
+              ),
+              Switch(
+                value: switchValue,
+                activeColor: Colors.blue,
+                thumbColor: const MaterialStatePropertyAll(Colors.blue),
+                activeTrackColor: Colors.black,
+                onChanged: (value) {
+                  setState(() {
+                    switchValue = value;
+                  });
+                },
+              ),
+              const SelectableText(
+                showCursor: true,
+                cursorColor: Colors.red,
+                "Debbie had taken George for granted for more than fifteen years now. He wasn't sure what exactly had made him choose this time and place to address the issue, but he decided that now was the time. He looked straight into her eyes and just as she was about to speak, turned away and walked out the door.",
+              ),
+            ],
+          ),
         ),
       ),
     );
